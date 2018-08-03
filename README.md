@@ -28,11 +28,12 @@ plugiins:[
 | ------------- | -------- | ---------------------------------- | ----------------------------------------- |
 | format        | String   | tar                                | archiver format options                   |
 | formatOptions | Object   | { gzip: true, zlib: { level: 9 } } | archiver options                          |
-| transform     | Function | function (inValue) { return inValue }         | You can `replace` to transfomr package path. |
-| output        | Function | function (inPath, inExt) { return inPath + inExt }         | You can `replace` to output package path. |
-| ext           | String    | .tar.gz         | Package extention |
+| transform     | Function | RETURN_VALUE                       | `replace` to transform package path.      |
+| output        | Function | function (a, b) { return a + b }   | `replace` to output package path.         |
+| ext           | String   | .tar.gz                            | Package extention                         |
 
 
 
 ## reosuces:
 + https://github.com/Seldszar/archiver-webpack-plugin
++ https://archiverjs.com/docs/#quick-start
