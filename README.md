@@ -1,7 +1,6 @@
 # archiver-webpack-plugin
 > Archiver webpack plugin.
 
-
 ## install:
 ```shell
 npm install -D afeiship/archiver-webpack-plugin
@@ -33,3 +32,7 @@ plugiins:[
 | output        | Function | function (inPath, inExt) { return inPath + inExt }         | You can `replace` to output package path. |
 | ext           | String    | .tar.gz         | Package extention |
 
+
+
+## reosuces:
++ https://github.com/Seldszar/archiver-webpack-plugin
