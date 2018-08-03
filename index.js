@@ -1,8 +1,9 @@
 var objectAssign = require('object-assign');
 var process = require('./lib/process');
 var RETURN_VALUE = function (inValue) { return inValue };
+var DEFAULT_OUTPUT = function (inPath, inExt) { return inPath + inExt };
 var DEFAULT_FORMAT = 'tar';
-var DEFAULT_OUTPUT = './dist';
+var DEFAULT_EXT = '.tar.gz';
 
 /**
  * Configure the plugin
@@ -13,7 +14,11 @@ function ArchiverWebpackPlugin(inOptions) {
     format: DEFAULT_FORMAT,
     output: DEFAULT_OUTPUT,
     transform: RETURN_VALUE,
-    formatOptions: {}
+    ext: DEFAULT_EXT,
+    formatOptions: {
+      gzip: true,
+      zlib: { level: 9 }
+    }
   }, inOptions);
 
   this.options = options;
@@ -25,9 +30,24 @@ function ArchiverWebpackPlugin(inOptions) {
  */
 ArchiverWebpackPlugin.prototype.apply = function (compiler) {
   var self = this;
-  compiler.plugin('emit', function (compilation) {
-    return process(self.options);
-  });
+
+  // intial options:
+  Object.assign(this.options, {
+    output: this.options.output(compiler.options.output.path, ext),
+    assets: compilation.assets
+  })
+
+  if (compiler.hooks) {
+    // webpack >=4.0
+    compiler.hooks.emit.tap('ArchiverWebpackPlugin', function (compilation) {
+      return process(self.options);
+    });
+  } else {
+    // webpack < 4.0:
+    compiler.plugin('emit', function (compilation) {
+      return process(self.options);
+    });
+  }
 };
 
 module.exports = ArchiverWebpackPlugin;
