@@ -30,21 +30,23 @@ function ArchiverWebpackPlugin(inOptions) {
  */
 ArchiverWebpackPlugin.prototype.apply = function (compiler) {
   var self = this;
-
-  // intial options:
-  Object.assign(this.options, {
-    output: this.options.output(compiler.options.output.path, ext),
-    assets: compilation.assets
-  })
+  var updateOptions = function (compilation) {
+    Object.assign(self.options, {
+      output: self.options.output(compiler.options.output.path, self.options.ext),
+      assets: compilation.assets
+    })
+  };
 
   if (compiler.hooks) {
     // webpack >=4.0
     compiler.hooks.emit.tap('ArchiverWebpackPlugin', function (compilation) {
+      updateOptions(compilation);
       return process(self.options);
     });
   } else {
     // webpack < 4.0:
     compiler.plugin('emit', function (compilation) {
+      updateOptions(compilation);
       return process(self.options);
     });
   }
