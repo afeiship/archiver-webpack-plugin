@@ -13,14 +13,23 @@ import ArchiverWebpackPlugin from 'archiver-webpack-plugin';
 
 // plugins:
 plugiins:[
-  new ArchiverWebpackPlugin()
+  new ArchiverWebapckPlugin({
+    transform: function (inValue) {
+      return 'app/' + inValue;
+    },
+    output: function (inPath, inExt) {
+      return inPath.replace('dist', 'dist/app') + inExt;
+    }
+  })
 ]
 ```
 
 ## options:
-| Name     | Type     | Default                                  | Description            |
-| -------- | -------- | ---------------------------------------- | ---------------------- |
-| files    | Array    | ['./package.json']                       | Default files array.   |
-| enabled  | Boolean  | true                                     | If enable this plugin. |
-| callback | Function | semver.inc(inValue, 'prepatch','alpha'); | See `semver`           |
+| Name          | Type     | Default                            | Description                               |
+| ------------- | -------- | ---------------------------------- | ----------------------------------------- |
+| format        | String   | tar                                | archiver format options                   |
+| formatOptions | Object   | { gzip: true, zlib: { level: 9 } } | archiver options                          |
+| transform     | Function | function (inValue) { return inValue }         | You can `replace` to transfomr package path. |
+| output     | Function | function (inPath, inExt) { return inPath + inExt }         | You can `replace` to output package path. |
+| ext     | String | .tar.gz         | Package extention |
 
