@@ -24,14 +24,13 @@ plugiins:[
 ```
 
 ## options:
-| Name          | Type     | Default                            | Description                               |
-| ------------- | -------- | ---------------------------------- | ----------------------------------------- |
-| format        | String   | tar                                | archiver format options                   |
-| formatOptions | Object   | { gzip: true, zlib: { level: 9 } } | archiver options                          |
-| transform     | Function | RETURN_VALUE                       | `replace` to transform package path.      |
-| output        | Function | function (a, b) { return a + b }   | `replace` to output package path.         |
-| ext           | String   | .tar.gz                            | Package extention                         |
-
+| Name          | Type     | Default                                            | Description                          |
+|:--------------|:---------|:---------------------------------------------------|:-------------------------------------|
+| format        | String   | tar                                                | archiver format options              |
+| formatOptions | Object   | { gzip: true, zlib: { level: 9 } }                 | archiver options                     |
+| transform     | Function | RETURN_VALUE                                       | `replace` to transform package path. |
+| output        | Function | function (inPath, inExt) { return inPath + inExt } | `replace` to output package path.    |
+| ext           | String   | .tar.gz                                            | Package extention                    |
 
 
 ## reosuces:
