@@ -1,5 +1,5 @@
 {
-  "name": "archiver-webpack-plugin",
+  "name": "@feizheng/archiver-webpack-plugin",
   "version": "1.0.0",
   "description": "Archiver webpack plugin.",
   "homepage": "https://github.com/afeiship/archiver-webpack-plugin",
@@ -14,5 +14,8 @@
   },
   "devDependencies": {
     "@feizheng/rake-git": "^1.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
