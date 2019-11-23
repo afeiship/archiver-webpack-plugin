@@ -1,12 +1,12 @@
 # archiver-webpack-plugin
 > Archiver webpack plugin.
 
-## install:
+## installation
 ```shell
-npm install -D afeiship/archiver-webpack-plugin
+npm install -D @feizheng/archiver-webpack-plugin
 ```
 
-## usage:
+## usage
 ```js
 import ArchiverWebpackPlugin from 'archiver-webpack-plugin';
 
@@ -23,7 +23,7 @@ plugiins:[
 ]
 ```
 
-## options:
+## options
 | Name          | Type     | Default                                            | Description                          |
 |:--------------|:---------|:---------------------------------------------------|:-------------------------------------|
 | format        | String   | tar                                                | archiver format options              |
@@ -33,6 +33,6 @@ plugiins:[
 | ext           | String   | .tar.gz                                            | Package extention                    |
 
 
-## reosuces:
-+ https://github.com/Seldszar/archiver-webpack-plugin
-+ https://archiverjs.com/docs/#quick-start
+## resources
+- https://github.com/Seldszar/archiver-webpack-plugin
+- https://archiverjs.com/docs/#quick-start
