@@ -21,5 +21,13 @@
   },
   "devDependencies": {
     "release-it": "^14.4.1"
-  }
+  },
+  "keywords": [
+    "archiver",
+    "package",
+    "tar",
+    "zip",
+    "webpack",
+    "plugin"
+  ]
 }
