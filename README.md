@@ -3,12 +3,12 @@
 
 ## installation
 ```shell
-npm install -D @feizheng/archiver-webpack-plugin
+npm install -D @jswork/archiver-webpack-plugin
 ```
 
 ## usage
 ```js
-import ArchiverWebpackPlugin from 'archiver-webpack-plugin';
+import ArchiverWebpackPlugin from '@jswork/archiver-webpack-plugin';
 
 // plugins:
 plugiins:[
